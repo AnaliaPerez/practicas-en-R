@@ -43,4 +43,7 @@ Y luego hacemos el gráfico propiamente dicho
   xlim(c(2008, 2022)) +
   ylim(c(205,320))
 
-Ctrl + enter y disfruta como R despliega su magia ploteadora
+Ctrl + enter y voila!
+
+![plot](https://github.com/AnaliaPerez/practicas-en-R/blob/master/Rplot01.png)
+
