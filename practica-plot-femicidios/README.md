@@ -45,5 +45,4 @@ Y luego hacemos el gráfico propiamente dicho
 
 Ctrl + enter y voila!
 
-![plot](https://github.com/AnaliaPerez/practicas-en-R/blob/master/Rplot01.png)
 
