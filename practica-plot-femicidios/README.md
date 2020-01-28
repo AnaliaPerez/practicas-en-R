@@ -45,4 +45,4 @@ Y luego hacemos el gráfico propiamente dicho
 
 Ctrl + enter y voila!
 
-
+![plot](/practica-plot-femicidios/Rplot01.png)
