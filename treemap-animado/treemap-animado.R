@@ -13,7 +13,8 @@ GDP<-read.csv("gdp _pc_wb.csv")
 regiones<- read.csv("regiones_data_BM.csv")
 
 
-#los datos están organizados de una forma que no me sirve para hacer el treemap y no me interesa abarcar los años más lejanos (sobre todo por tener muchos faltantes de datos)
+#los datos están organizados de una forma que no me sirve para hacer el treemap y no me interesa abarcar los años más lejanos 
+#(sobre todo por tener muchos faltantes de datos)
 #por eso realizamos la siguientes operaciones de selección y reordenamiento
 
 #los años están en columnas, por ello seleccionamos las de los años que queremos
@@ -38,7 +39,7 @@ melt_fert<-fert_años%>%
          fert = value)%>%
   mutate(year = gsub("X", "", melt_fert$year))
 
-#unimos los 2 datasets
+#unimos las 2 tablas
 fert_gdppc<- left_join(melt_gdp, melt_fert)
 
 #adosamos las regiones
@@ -51,12 +52,14 @@ final_f_g<- left_join(fert_gdppc,region)
 finalfg<- final_f_g %>%
   mutate(year= as.integer(year))
 
-#otro retoque: el dataset tenía en la columna pais una serie de regiones agrupadas que no me interesaban para exponer en el gráfico, como no tenían region las quito con las siguientes líneas
+#otro retoque: el dataset tenía en la columna pais una serie de regiones agrupadas que no me interesaban para exponer 
+#en el gráfico, como no tenían region las quito con las siguientes líneas
 sinreggrupos<- finalfg %>%
   filter(Region != "") %>%
   drop_na()
 
-#realizamos el treemap animado, se toma su tiempo. Quizas sea recomendable hacer antes algún gráfico sin animar (como el que pongo mas adelante) para ver si hay algo más que resolver con los datos
+#realizamos el treemap animado, se toma su tiempo. Quizas sea recomendable hacer antes algún gráfico sin animar 
+#(como el que pongo mas adelante) para ver si hay algo más que resolver con los datos
 animado <- ggplot(sinreggrupos, aes(
   label = Country.Name,
   area = gdp_pc,
